@@ -14,7 +14,9 @@ function slide(el) {
 }
 
 function setCaption(idx = 0) {
+  caption.classList.remove("active");
   caption.textContent = data[idx].description;
+  setTimeout(() => caption.classList.add("active"), 200);
 }
 
 function setControls() {
