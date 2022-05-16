@@ -1,0 +1,18 @@
+[
+  {
+    "image": "assets/images/elephant.jpg",
+    "description": "An elephant in the Lewa conservancy in Kenya is lit by the soft light of dawn"
+  },
+  {
+    "image": "assets/images/rhino.jpg",
+    "description": "A mother and baby black rhino in Lewa Conservancy in Kenya"
+  },
+  {
+    "image": "assets/images/cheetah.jpg",
+    "description": "A cheetah poses nicely in Lewa Conservancy in Kenya"
+  },
+  {
+    "image": "assets/images/giraffe.jpg",
+    "description": "A beautiful reticulated giraffe in Lewa Conservancy in Kenya"
+  }
+]
