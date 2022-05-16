@@ -9,7 +9,7 @@
 :root {
     --text-color: #93aeb4;
     --width: 100%;
-    --gap: 1.5rem;
+    --gap: 1rem;
     --slide-index: 0;
 }
 
@@ -140,6 +140,7 @@ li {
 @media screen AND (min-width: 35rem) {
     :root {
         --width: 35rem;
+        --gap: 1.5rem;
     }
 
     .description {
