@@ -51,17 +51,17 @@ li {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 24px;
+    padding: 1.5rem;
     gap: var(--gap);
     background: #0d1623;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     width: var(--width);
 }
 
 .slider-container {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 
 .items {
@@ -91,6 +91,14 @@ li {
     font-size: 1.1rem;
     line-height: 1.6;
     order: 1;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: transform 500ms ease-in-out;
+}
+
+.caption.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .controls {
@@ -107,10 +115,10 @@ li {
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50px;
-    border: 3px solid #71abfe;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50rem;
+    border: 0.125rem solid #71abfe;
     background-color: #71abfe;
     transition: all 150ms ease-in-out;
 }
@@ -129,9 +137,9 @@ li {
     border-color: #ccc;
 }
 
-@media screen AND (min-width: 600px) {
+@media screen AND (min-width: 35rem) {
     :root {
-        --width: 600px;
+        --width: 35rem;
     }
 
     .description {
