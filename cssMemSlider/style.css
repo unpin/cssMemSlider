@@ -10,7 +10,7 @@
     --text-color: #93aeb4;
     --width: 100%;
     --gap: 1rem;
-    --slide-index: 0;
+    --slide: 0;
 }
 
 html {
@@ -32,6 +32,10 @@ img {
 
 li {
     list-style: none;
+}
+
+input[type='radio'] {
+    display: none;
 }
 
 .header {
@@ -69,7 +73,7 @@ li {
     aspect-ratio: 16/9;
     position: relative;
     transition: transform 250ms ease-in-out;
-    transform: translateX(calc(100% * -1 * var(--slide-index)));
+    transform: translateX(calc(100% * -1 * var(--slide)));
 }
 
 .item {
@@ -91,23 +95,16 @@ li {
     font-size: 1.1rem;
     line-height: 1.6;
     order: 1;
-    opacity: 0;
-    transform: translateY(1rem);
     transition: transform 500ms ease-in-out;
 }
 
-.caption.active {
-    opacity: 1;
-    transform: translateY(0);
+.caption p {
+    display: none;
 }
 
 .controls {
     display: flex;
     align-self: center;
-}
-
-.control-item {
-    padding: 0.5rem;
 }
 
 .control-item:hover {
@@ -155,5 +152,131 @@ li {
 
     .controls {
         align-self: flex-start;
+    }
+}
+
+.container {
+    display: flex;
+    position: relative;
+    padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.container input {
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 0.75rem;
+    width: 0.75rem;
+    background-color: #71abfe;
+    border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+    transition: all 250ms ease-in-out;
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: transparent;
+    border: 0.15rem solid #71abfe;
+}
+
+.container input:checked:hover ~ .checkmark {
+    border-color: #ccc !important;
+}
+
+.checkmark {
+    border: 0.15rem solid #71abfe;
+}
+
+.control-item:hover .checkmark {
+    transition: all 200ms ease-in-out;
+    background-color: #eee;
+    border-color: #eee;
+}
+
+#slide1:checked ~ .slider .control-item:nth-child(1) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+#slide2:checked ~ .slider .control-item:nth-child(2) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+#slide3:checked ~ .slider .control-item:nth-child(3) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+#slide4:checked ~ .slider .control-item:nth-child(4) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+
+#slide1:checked ~ .slider .control-item:nth-child(1):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide2:checked ~ .slider .control-item:nth-child(2):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide3:checked ~ .slider .control-item:nth-child(3):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide4:checked ~ .slider .control-item:nth-child(4):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide1:checked ~ .slider {
+    --slide: 0;
+}
+
+#slide2:checked ~ .slider {
+    --slide: 1;
+}
+
+#slide3:checked ~ .slider {
+    --slide: 2;
+}
+
+#slide4:checked ~ .slider {
+    --slide: 3;
+}
+
+#slide1:checked ~ .slider .caption > p:nth-child(1) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+#slide2:checked ~ .slider .caption > p:nth-child(2) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+#slide3:checked ~ .slider .caption > p:nth-child(3) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+#slide4:checked ~ .slider .caption > p:nth-child(4) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+@keyframes emerge {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
