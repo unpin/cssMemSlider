@@ -1,0 +1,282 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --text-color: #93aeb4;
+    --width: 100%;
+    --gap: 1rem;
+    --slide: 0;
+}
+
+html {
+    font-family: 'Open Sans', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #01070f;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 'header' 'main' 'footer';
+    height: 100vh;
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+input[type='radio'] {
+    display: none;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+    place-self: center;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: var(--gap);
+    background: #0d1623;
+    border-radius: 0.5rem;
+    width: var(--width);
+}
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.items {
+    display: flex;
+    aspect-ratio: 16/9;
+    position: relative;
+    transition: transform 250ms ease-in-out;
+    transform: translateX(calc(100% * -1 * var(--slide)));
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.caption {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    order: 1;
+    transition: transform 500ms ease-in-out;
+}
+
+.caption p {
+    display: none;
+}
+
+.controls {
+    display: flex;
+    align-self: center;
+}
+
+.control-item:hover {
+    cursor: pointer;
+}
+
+.dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50rem;
+    border: 0.125rem solid #71abfe;
+    background-color: #71abfe;
+    transition: all 150ms ease-in-out;
+}
+
+.dot.active {
+    background-color: transparent;
+}
+
+.control-item:hover .dot {
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+.control-item:hover .dot.active {
+    background-color: transparent;
+    border-color: #ccc;
+}
+
+@media screen AND (min-width: 35rem) {
+    :root {
+        --width: 35rem;
+        --gap: 1.5rem;
+    }
+
+    .description {
+        flex-direction: row;
+        gap: var(--gap);
+    }
+
+    .caption {
+        font-size: 1.25rem;
+        order: 0;
+    }
+
+    .controls {
+        align-self: flex-start;
+    }
+}
+
+.container {
+    display: flex;
+    position: relative;
+    padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.container input {
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 0.75rem;
+    width: 0.75rem;
+    background-color: #71abfe;
+    border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+    transition: all 250ms ease-in-out;
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: transparent;
+    border: 0.15rem solid #71abfe;
+}
+
+.container input:checked:hover ~ .checkmark {
+    border-color: #ccc !important;
+}
+
+.checkmark {
+    border: 0.15rem solid #71abfe;
+}
+
+.control-item:hover .checkmark {
+    transition: all 200ms ease-in-out;
+    background-color: #eee;
+    border-color: #eee;
+}
+
+#slide1:checked ~ .slider .control-item:nth-child(1) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+#slide2:checked ~ .slider .control-item:nth-child(2) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+#slide3:checked ~ .slider .control-item:nth-child(3) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+#slide4:checked ~ .slider .control-item:nth-child(4) .checkmark {
+    background-color: transparent;
+    border-color: #71abfe;
+}
+
+#slide1:checked ~ .slider .control-item:nth-child(1):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide2:checked ~ .slider .control-item:nth-child(2):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide3:checked ~ .slider .control-item:nth-child(3):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide4:checked ~ .slider .control-item:nth-child(4):hover .checkmark {
+    border-color: #eee;
+}
+
+#slide1:checked ~ .slider {
+    --slide: 0;
+}
+
+#slide2:checked ~ .slider {
+    --slide: 1;
+}
+
+#slide3:checked ~ .slider {
+    --slide: 2;
+}
+
+#slide4:checked ~ .slider {
+    --slide: 3;
+}
+
+#slide1:checked ~ .slider .caption > p:nth-child(1) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+#slide2:checked ~ .slider .caption > p:nth-child(2) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+#slide3:checked ~ .slider .caption > p:nth-child(3) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+#slide4:checked ~ .slider .caption > p:nth-child(4) {
+    display: block;
+    animation: emerge 500ms ease-in-out forwards;
+}
+
+@keyframes emerge {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

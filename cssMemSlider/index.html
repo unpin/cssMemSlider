@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>cssMemSlider</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="header"></header>
+        <main class="main">
+            <input type="radio" name="slide" id="slide1" checked="checked" />
+            <input type="radio" name="slide" id="slide2" />
+            <input type="radio" name="slide" id="slide3" />
+            <input type="radio" name="slide" id="slide4" />
+            <div class="slider">
+                <div class="slider-container">
+                    <div class="items">
+                        <img class="item" src="assets/images/elephant.jpg" />
+                        <img class="item" src="assets/images/rhino.jpg" />
+                        <img class="item" src="assets/images/cheetah.jpg" />
+                        <img class="item" src="assets/images/giraffe.jpg" />
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="caption">
+                        <p>
+                            An elephant in the Lewa conservancy in Kenya is lit
+                            by the soft light of dawn
+                        </p>
+                        <p>
+                            A mother and baby black rhino in Lewa Conservancy in
+                            Kenya
+                        </p>
+                        <p>
+                            A cheetah poses nicely in Lewa Conservancy in Kenya
+                        </p>
+                        <p>
+                            A beautiful reticulated giraffe in Lewa Conservancy
+                            in Kenya
+                        </p>
+                    </div>
+                    <ul class="controls" id="con">
+                        <li class="control-item">
+                            <label class="container" id="#label1" for="slide1">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li class="control-item">
+                            <label class="container" id="#label2" for="slide2">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+
+                        <li class="control-item">
+                            <label class="container" id="#label3" for="slide3">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+
+                        <li class="control-item">
+                            <label class="container" id="#label4" for="slide4">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        <footer class="footer"></footer>
+    </body>
+</html>
